@@ -1,7 +1,8 @@
-package com.axweb.socialmedia
+package com.axweb.socialmedia.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.axweb.socialmedia.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
