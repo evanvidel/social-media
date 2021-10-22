@@ -1,6 +1,6 @@
 package com.axweb.socialmedia.model
 
-data class User(
+data class LoginRequest(
     var username: String,
     var password: String
 

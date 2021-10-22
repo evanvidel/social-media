@@ -9,7 +9,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.axweb.socialmedia.databinding.ActivityFormLoginBinding
-import com.axweb.socialmedia.model.User
+import com.axweb.socialmedia.model.LoginRequest
 import com.axweb.socialmedia.repository.LoginRepository
 import com.axweb.socialmedia.service.RetrofitService
 import com.axweb.socialmedia.viewmodel.LoginViewModel
@@ -50,18 +50,21 @@ class FormLoginActivity : AppCompatActivity() {
 
     }
     fun singIn() {
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
         viewModel.login(
-            User(username = "evanvidel@gmail.com", password = "franco2021")
+
+            LoginRequest(email, password)
         )
     }
 
    fun initObservables(){
        viewModel.erroMessage.observe(this,{
-           Toast.makeText(this,"Erro",Toast.LENGTH_SHORT).show()
+           Toast.makeText(this, it ,Toast.LENGTH_SHORT).show()
        })
 
        viewModel.success.observe(this,{
-           Toast.makeText(this,"Sucesso",Toast.LENGTH_SHORT).show()
+           Toast.makeText(this,"Sucesso: $it",Toast.LENGTH_LONG).show()
        })
     }
 
@@ -72,7 +75,7 @@ class FormLoginActivity : AppCompatActivity() {
 
        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
            val email = binding.etEmail.text.toString()
-           val password = binding.etPassword.toString()
+           val password = binding.etPassword.text.toString()
 
            if(email.isNotEmpty() && password.isNotEmpty()) {
                binding.btLogin.setEnabled(true)
