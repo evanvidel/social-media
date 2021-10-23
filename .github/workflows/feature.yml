@@ -1,0 +1,35 @@
+name: Feature CI
+
+on:
+  push:
+    branches:
+      - feature/*
+  pull_request:
+    types: [opened]
+
+  workflow_dispatch: 
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Changing gradlew permission
+        run: chmod +x ./gradlew
+
+      - name: Run build
+        run: ./gradlew build
+
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Changing gradlew permission
+        run: chmod +x ./gradlew
+
+      - name: Run unit tests
+        run: ./gradlew test
+
