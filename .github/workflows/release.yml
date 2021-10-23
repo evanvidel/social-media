@@ -38,7 +38,3 @@ jobs:
           name: release.apk
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
-      - uses: actions/upload-artifact@master
-        with:
-          name: mapping.txt
-          path: app/build/outputs/mapping/release/mapping.txt
