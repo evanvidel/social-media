@@ -2,11 +2,10 @@ name: Feature CI
 
 on:
   push:
-    branches: 
+    branches:
     - feature/*
   pull_request:
-    branches:
-    - develop
+    types: [opened]
 
   workflow_dispatch: 
 
@@ -21,7 +20,7 @@ jobs:
         run: echo "---------------- Starting with build test -------------------"
 
       - name: Changing gradlew permission
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
 
       - name: Run build
         run: ./gradlew build
@@ -37,7 +36,7 @@ jobs:
         run: echo "---------------- Starting with unit tests -------------------"
 
       - name: Changing gradlew permission
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
 
       - name: Run unit
         run: ./gradlew test
