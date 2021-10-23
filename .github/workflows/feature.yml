@@ -15,25 +15,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Starting with build test
-        run: echo "---------------- Starting with build test -------------------"
 
       - name: Changing gradlew permission
         run: chmod +x ./gradlew
 
       - name: Run build
         run: ./gradlew build
-        
-      - name: Finish build test
-        run: echo "---------------- Finish build test -------------------"
 
   unittest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Starting with unit test
-        run: echo "---------------- Starting with unit tests -------------------"
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
 
       - name: Changing gradlew permission
         run: chmod +x ./gradlew
@@ -41,5 +42,3 @@ jobs:
       - name: Run unit
         run: ./gradlew test
 
-      - name: Finish unit tests
-        run: echo "---------------- Finish unit tests -------------------"
