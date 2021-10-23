@@ -3,7 +3,7 @@ name: Feature CI
 on:
   push:
     branches:
-    - feature/*
+      - feature/*
   pull_request:
     types: [opened]
 
