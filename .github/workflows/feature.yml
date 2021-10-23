@@ -1,0 +1,37 @@
+name: Feature CI
+
+on:
+  push:
+    branches: 
+    - feature/*
+  pull_request:
+    branches:
+    - develop
+
+  workflow_dispatch: 
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Starting with build test
+        run: echo "---------------- Starting with build test -------------------"
+
+      - name: Run build
+        run: ./gradlew build
+        
+      - name: Finish build test
+        run: echo "---------------- Finish build test -------------------"
+
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Starting with unit test
+        run: echo "---------------- Starting with unit tests -------------------"
+
+      - name: Run unit
+        run: ./gradlew t…
