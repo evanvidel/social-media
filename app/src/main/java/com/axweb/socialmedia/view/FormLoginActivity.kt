@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.axweb.socialmedia.databinding.ActivityFormLoginBinding
 import com.axweb.socialmedia.model.LoginRequest
+import com.axweb.socialmedia.model.SessionHelper
 import com.axweb.socialmedia.repository.LoginRepository
 import com.axweb.socialmedia.service.RetrofitService
 import com.axweb.socialmedia.viewmodel.LoginViewModel
@@ -26,6 +27,8 @@ class FormLoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar!!.hide()
 
+
+
         binding.etEmail.addTextChangedListener(textWatcher)
         binding.etPassword.addTextChangedListener(textWatcher)
 
@@ -33,8 +36,6 @@ class FormLoginActivity : AppCompatActivity() {
 
             singIn()
         }
-
-
 
         initObservables()
 
@@ -64,7 +65,8 @@ class FormLoginActivity : AppCompatActivity() {
        })
 
        viewModel.success.observe(this,{
-           Toast.makeText(this,"Sucesso: $it",Toast.LENGTH_LONG).show()
+           //Toast.makeText(this,"Sucesso: $it",Toast.LENGTH_LONG).show()
+           SessionHelper.token = it
        })
     }
 
@@ -80,6 +82,11 @@ class FormLoginActivity : AppCompatActivity() {
            if(email.isNotEmpty() && password.isNotEmpty()) {
                binding.btLogin.setEnabled(true)
 
+               /*binding.btLogin.setOnClickListener {
+                   val intent = Intent(this@FormLoginActivity, PerfilActivity::class.java)
+                   startActivity(intent)
+               }*/
+
            }else{
                binding.btLogin.setEnabled(false)
            }
@@ -88,6 +95,5 @@ class FormLoginActivity : AppCompatActivity() {
        override fun afterTextChanged(s: Editable?) {
 
        }
-
    }
 }

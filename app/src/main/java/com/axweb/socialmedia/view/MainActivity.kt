@@ -1,12 +1,16 @@
 package com.axweb.socialmedia.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.axweb.socialmedia.R
+import androidx.appcompat.app.AppCompatActivity
+import com.axweb.socialmedia.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
