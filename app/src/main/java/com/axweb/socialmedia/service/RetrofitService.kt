@@ -26,7 +26,7 @@ interface RetrofitService {
         private val retrofitService: RetrofitService by lazy {
 
             val logging = HttpLoggingInterceptor()
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+            logging.apply { logging.level = HttpLoggingInterceptor.Level.BODY }
             val httpClient = OkHttpClient.Builder()
             httpClient.addInterceptor(logging)
 
@@ -35,10 +35,10 @@ interface RetrofitService {
                 val requestBuilder = chain.request().newBuilder()
 
                 if (!SessionHelper.token.isNullOrEmpty()) {
-                   // requestBuilder.header("token", SessionHelper.token)
+                    requestBuilder.header("token", SessionHelper.token ?: "" )
                 }
                 if (!SessionHelper.pais.isNullOrEmpty()) {
-                    requestBuilder.header("country", SessionHelper.pais)
+                    requestBuilder.header("country", SessionHelper.pais ?: "")
                 }
                 requestBuilder.method(original.method, original.body)
                 val response = chain.proceed(requestBuilder.build())
