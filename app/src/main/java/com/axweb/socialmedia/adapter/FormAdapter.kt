@@ -4,5 +4,4 @@ import com.axweb.socialmedia.model.LoginRequest
 
 class FormAdapter (private val user : LoginRequest ){
 
-
 }

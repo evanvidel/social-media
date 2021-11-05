@@ -7,6 +7,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.axweb.socialmedia.databinding.ActivityPresentationBinding
+import com.axweb.socialmedia.model.SessionHelper
 
 
 class PresentationActivity : AppCompatActivity() {
@@ -15,12 +16,16 @@ class PresentationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPresentationBinding.inflate(layoutInflater)
+       binding = ActivityPresentationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         supportActionBar!!.hide()
 
         binding.btLogin.setOnClickListener {
+
+            SessionHelper.pais = "Br"
             userLogin()
+
         }
 
 

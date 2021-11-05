@@ -9,6 +9,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.axweb.socialmedia.databinding.ActivitySplashBinding
+import com.axweb.socialmedia.model.SessionHelper
 
 
 class SplashActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         supportActionBar!!.hide()
 
         @Suppress("DEPRECATION")
@@ -34,6 +36,7 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
         loginScreen()
         }, 3000)
+
 
     }
 

@@ -5,4 +5,16 @@
     <string name="password">Password</string>
     <string name="sign_in2">SIGN IN</string>
     <string name="your_password">Forgot your password?</string>
+    <string name="_000">000</string>
+    <string name="user">Willie Baldwin</string>
+    <string name="fotos">fotos</string>
+    <string name="likes">likes</string>
+    <string name="text_about">Are we human because of unique traits and attributes not shared with either animal or machine?
+        The definition of “human” is circular: we are human by virtue of the properties that make us human (i.e., distinct from animal and machine).
+        It is a definition by negation: that which separates us from animal and machine is our “human-ness”. We are human because we are not animal,
+        nor machine. But such thinking has been rendered progressively less tenable by the advent of evolutionary and neo-evolutionary theories which.</string>
+    <string name="about_me">ABOUT ME</string>
+    <string name="perfil">Perfil</string>
+    <string name="seguidores">seguidores</string>
+    <string name="seguindo">seguindo</string>
 </resources>
